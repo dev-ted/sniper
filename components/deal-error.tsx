@@ -15,7 +15,7 @@ export class DealError extends Component<
   render() {
     if (this.state.failed) {
       return (
-        <p className="text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-4 py-8 text-sm text-muted-foreground">
           Deals could not be loaded. Try again in a moment.
         </p>
       )

@@ -14,11 +14,11 @@ export function SiteHeader() {
   const pathname = usePathname()
 
   return (
-    <header className="border-b">
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between gap-4 px-4 py-4">
+    <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="min-w-0">
           <p className="text-sm text-muted-foreground">South Africa</p>
-          <p className="text-lg font-semibold tracking-tight">
+          <p className="text-base font-semibold tracking-tight">
             Black Friday deals
           </p>
         </Link>
