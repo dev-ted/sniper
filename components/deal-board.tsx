@@ -25,7 +25,7 @@ const ALL = "all"
 export function DealBoard() {
   if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
     return (
-      <p className="text-sm text-muted-foreground">
+      <p className="rounded-xl border border-dashed bg-card px-4 py-8 text-sm text-muted-foreground">
         Deal data is not connected yet.
       </p>
     )
@@ -57,8 +57,8 @@ function DealBoardLive() {
   const shopName = shops.find((shop) => shop.slug === storeSlug)?.name
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap gap-3">
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap gap-2 rounded-xl border bg-card p-3">
         <Select
           value={category}
           onValueChange={(value) => {
@@ -103,18 +103,18 @@ function DealBoardLive() {
 
       {status === "LoadingFirstPage" ? (
         <div className="flex flex-col gap-3">
-          <Skeleton className="h-16 w-full" />
-          <Skeleton className="h-16 w-full" />
-          <Skeleton className="h-16 w-full" />
+          <Skeleton className="h-28 w-full rounded-xl" />
+          <Skeleton className="h-28 w-full rounded-xl" />
+          <Skeleton className="h-28 w-full rounded-xl" />
         </div>
       ) : results.length === 0 ? (
-        <p className="text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-4 py-8 text-sm text-muted-foreground">
           {storeSlug === ALL
             ? "No deals in this category yet."
             : `No ${shopName ?? "shop"} deals in this category yet.`}
         </p>
       ) : (
-        <div>
+        <div className="flex flex-col gap-3">
           {results.map((deal) => (
             <DealRow key={deal.id} deal={deal} />
           ))}

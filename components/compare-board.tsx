@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 export function CompareBoard() {
   if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
     return (
-      <p className="text-sm text-muted-foreground">
+      <p className="rounded-xl border border-dashed bg-card px-4 py-8 text-sm text-muted-foreground">
         Deal data is not connected yet.
       </p>
     )
@@ -39,27 +39,28 @@ function CompareBoardLive() {
         onChange={(event) => setText(event.target.value)}
         placeholder="Try a TV, sneakers, or Pampers"
         aria-label="Item"
+        className="h-10 bg-card px-3 text-base md:text-sm"
       />
 
       {term.length < 2 ? (
-        <p className="text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-4 py-8 text-sm text-muted-foreground">
           Type an item to see its price at each shop.
         </p>
       ) : groups === undefined ? (
         <div className="flex flex-col gap-3">
-          <Skeleton className="h-16 w-full" />
-          <Skeleton className="h-16 w-full" />
+          <Skeleton className="h-28 w-full rounded-xl" />
+          <Skeleton className="h-28 w-full rounded-xl" />
         </div>
       ) : groups.length === 0 ? (
-        <p className="text-sm text-muted-foreground">
+        <p className="rounded-xl border border-dashed bg-card px-4 py-8 text-sm text-muted-foreground">
           Nothing matched that. Try the product name, like Hisense or Pampers.
         </p>
       ) : (
         <div className="flex flex-col gap-8">
           {groups.map((group) => (
-            <section key={group.compareKey} className="flex flex-col gap-2">
+            <section key={group.compareKey} className="flex flex-col gap-3">
               <h2 className="text-base font-medium">{group.title}</h2>
-              <div>
+              <div className="flex flex-col gap-3">
                 {group.deals.map((deal) => (
                   <DealRow
                     key={deal.id}

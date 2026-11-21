@@ -35,7 +35,7 @@ export default function RootLayout({
         inter.variable
       )}
     >
-      <body>
+      <body className="bg-muted">
         <ThemeProvider>
           <ConvexClientProvider>
             <SiteHeader />
